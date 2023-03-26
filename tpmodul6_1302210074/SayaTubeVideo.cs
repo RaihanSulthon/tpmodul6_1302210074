@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace tpmodul6_1302210074
             String Digit = "";
 
             Random random= new Random();
-            id= random.Next(1, 99999);
+            id = random.Next(1, 99999);
             Digit += id.ToString("Digit 5");
 
             playCount = 0;
@@ -30,12 +31,31 @@ namespace tpmodul6_1302210074
 
         public void PrintVideoDetails()
         {
-
+            Console.WriteLine("ID :" + id);
+            Console.WriteLine("Title :" + title);
+            Console.WriteLine("PlayCount : " + playCount);
         }
 
         public void IncreasePlayCount(int x)
         {
+            if(x <= 10000000)
+            {
+                for(playCount = 0; playCount <= x; playCount++)
+                {
 
+                }
+
+                int y = 0;
+                try
+                {
+                    y = checked(x + 10);
+                }
+                catch(System.OverflowException b)
+                {
+                    Console.WriteLine("Check : " + b.ToString);
+                    Console.WriteLine("Data Melebihi limit input");
+                }
+            }
         }
     }
 }
